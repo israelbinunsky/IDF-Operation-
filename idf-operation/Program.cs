@@ -75,45 +75,74 @@ namespace idf_operation
             return (w + t.rank) * 2;
         }
 
+
+        static public int chooseIndex(aman aman)
+        {
+            Console.WriteLine("choose number of intel:");
+            int num = int.Parse(Console.ReadLine());
+
+            if (num > aman.intels.Count || num > aman.intels.Count)
+            {
+                Random rnd = new Random();
+                num = rnd.Next(aman.intels.Count);
+                Console.WriteLine("the index is out of range. random number was choosen.");
+            }
+            return num;
+        }
+
         static public void strike(aman aman, idf idf)
         {
+            int index = chooseIndex(aman);
 
-            Random rnd = new Random();
-            int index = rnd.Next(aman.intels.Count);
+
             intel i = aman.intels[index];
 
-            i.ter.isLive = false;
-            string weaponName;
-            weapon w;
-
-            switch (i.location)
+            if (i.ter.isLive == true)
             {
-                case "building":
-                    idf.F16.remainingStrikes--;
-                    weaponName = "F16";
-                    w = idf.F16;
-                    break;
-                case "car":
-                    idf.Hermes460.remainingStrikes--;
-                    weaponName = "Hermes460";
-                    w = idf.Hermes460;
-                    break;
-                case "open space":
-                    idf.M109.remainingStrikes--;
-                    weaponName = "M109";
-                    w = idf.M109;
-                    break;
-                default:
-                    weaponName = "-";
-                    w = idf.M109;
-                    break;
+
+                string weaponName;
+                weapon w;
+
+                switch (i.location)
+                {
+                    case "building":
+                        weaponName = "F16";
+                        w = idf.F16;
+                        break;
+                    case "car":
+                        weaponName = "Hermes460";
+                        w = idf.Hermes460;
+                        break;
+                    case "open space":
+                        weaponName = "M109";
+                        w = idf.M109;
+                        break;
+                    default:
+                        weaponName = "-";
+                        w = idf.M109;
+                        break;
+                }
+
+                if (w.remainingStrikes > 0)
+                {
+                    i.ter.isLive = false;
+                    w.remainingStrikes--;
+
+                    int rank = rankTerrorist(i.ter);
+
+                    Console.WriteLine($"the terrorist {i.ter.name}, graded {rank} in the terror organization hamas, " +
+                        $"was killed by {weaponName} of idf; he wached before at {i.timestamp} o'clock in {i.location}" +
+                        $" helding a {i.ter.Weapon}. remined strikes in the {weaponName} after the strike: {w.remainingStrikes}.");
+                }
+                else
+                {
+                    Console.WriteLine($"there is no remaining strikes in the {weaponName}.");
+                }
             }
-
-            int rank = rankTerrorist(i.ter);
-
-        Console.WriteLine($"the terrorist {i.ter.name}, graded {rank} in the terror organization hamas, " +
-            $"was killed by {weaponName} of idf; he wached before at {i.timestamp} o'clock in {i.location}" +
-            $" helding a {i.ter.Weapon}. remined strikes in the {weaponName} after the strike: {w.remainingStrikes}.");
+            else
+            {
+                Console.WriteLine("this terrorist is alredy dead.");
+            }
         }
     }
 }
