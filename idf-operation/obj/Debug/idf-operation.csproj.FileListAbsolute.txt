@@ -1,2 +1,10 @@
 C:\Users\israel\Desktop\תכנות\visual studio\idf-operation\idf-operation\obj\Debug\idf-operation.csproj.AssemblyReference.cache
 C:\Users\israel\Desktop\תכנות\visual studio\idf-operation\idf-operation\obj\Debug\idf-operation.csproj.CoreCompileInputs.cache
+<<<<<<< HEAD
+=======
+C:\Users\israel\Desktop\תכנות\visual studio\idf-operation\idf-operation\bin\Debug\idf-operation.exe.config
+C:\Users\israel\Desktop\תכנות\visual studio\idf-operation\idf-operation\bin\Debug\idf-operation.exe
+C:\Users\israel\Desktop\תכנות\visual studio\idf-operation\idf-operation\bin\Debug\idf-operation.pdb
+C:\Users\israel\Desktop\תכנות\visual studio\idf-operation\idf-operation\obj\Debug\idf-operation.exe
+C:\Users\israel\Desktop\תכנות\visual studio\idf-operation\idf-operation\obj\Debug\idf-operation.pdb
+>>>>>>> 2a0b59e60c60e1e1dfdd056325da25743716d60f

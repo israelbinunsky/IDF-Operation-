@@ -48,7 +48,7 @@ namespace idf_operation
 
             idf idf = new idf();
 
-            strike(aman, idf);
+            menue(aman, idf);
             
         }
 
@@ -77,17 +77,24 @@ namespace idf_operation
 
         static public int chooseIndex(aman aman)
         {
+
             Console.WriteLine("choose number of intel from aman:");
+
             int num = int.Parse(Console.ReadLine());
 
             if (num > aman.intels.Count || num > aman.intels.Count)
             {
                 Random rnd = new Random();
                 num = rnd.Next(aman.intels.Count);
+
                 Console.WriteLine("the index is out of range. random number will be choosen.");
+
+                Console.WriteLine("the index is out of range. random number was choosen.");
+
             }
             return num;
         }
+
 
 
         static public void chargeWeapon(idf idf)
@@ -116,7 +123,7 @@ namespace idf_operation
 
         static public void menue(aman aman, idf idf)
         {
-            Console.WriteLine("to choose intel and strike the terrorist enter 1." +
+            Console.WriteLine("to choose intel and strike the terrorist enter 1. " +
                 "to upload the weapon enter 2.");
             int num = int.Parse(Console.ReadLine());
             switch (num)
@@ -133,6 +140,7 @@ namespace idf_operation
             }
 
         }
+
         static public void strike(aman aman, idf idf)
         {
             int index = chooseIndex(aman);
