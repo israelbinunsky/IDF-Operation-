@@ -15,10 +15,7 @@ namespace idf_operation
             A.IDF.Intelligence.IntelligenceGathering(A.Hamas);
             A.IDF.Intelligence.IntelligenceGathering(A.Hamas);
 
-            terrorist target = A.IDF.Intelligence.GetIntel().Terrorist;
-            Console.WriteLine("hkjh");
-
-            A.IDF.GetWeapon().KillTheTerrorist(target);
+            A.IDF.GetWeapon().KillTheTerrorist(A.IDF.Intelligence.GetIntel().Terrorist);
 
 
 

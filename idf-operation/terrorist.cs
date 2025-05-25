@@ -11,6 +11,6 @@ public class terrorist
 
     public bool IsLive
     {
-        get { return this.IsLive; }
+        get { return this._IsLive; }
     }
 }

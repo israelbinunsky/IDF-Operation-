@@ -25,7 +25,6 @@ public class intelligence
     {
         foreach (intel Intel in this._inteles)
         {
-            Console.WriteLine("1");
             if (Intel.Terrorist.IsLive)
             {
                 return Intel;
