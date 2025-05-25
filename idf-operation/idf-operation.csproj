@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="aman.cs" />
     <Compile Include="hamas.cs" />
+    <Compile Include="idf.cs" />
     <Compile Include="intel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

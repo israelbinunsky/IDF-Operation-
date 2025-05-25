@@ -45,9 +45,11 @@ namespace idf_operation
             terrorist t12 = randomTerrorist(hamas);
             aman.addIntel(t12, "open space", "11:04");
 
-            terrorist myTerrorist = hamas.terrorists[aman.intels[0].ter.name];
-            strike(myTerrorist);
-            Console.WriteLine(myTerrorist.isLive);
+
+            idf idf = new idf();
+
+            strike(aman, idf);
+            
 
         }
 
@@ -60,7 +62,7 @@ namespace idf_operation
             return ranTerrorist;
         }
 
-        static int rankTerrorist(terrorist t)
+        static public int rankTerrorist(terrorist t)
         {
             int w = 0;
             switch (t.Weapon)
@@ -73,9 +75,45 @@ namespace idf_operation
             return (w + t.rank) * 2;
         }
 
-        static public void strike(terrorist t)
+        static public void strike(aman aman, idf idf)
         {
-            t.isLive = false;
+
+            Random rnd = new Random();
+            int index = rnd.Next(aman.intels.Count);
+            intel i = aman.intels[index];
+
+            i.ter.isLive = false;
+            string weaponName;
+            weapon w;
+
+            switch (i.location)
+            {
+                case "building":
+                    idf.F16.remainingStrikes--;
+                    weaponName = "F16";
+                    w = idf.F16;
+                    break;
+                case "car":
+                    idf.Hermes460.remainingStrikes--;
+                    weaponName = "Hermes460";
+                    w = idf.Hermes460;
+                    break;
+                case "open space":
+                    idf.M109.remainingStrikes--;
+                    weaponName = "M109";
+                    w = idf.M109;
+                    break;
+                default:
+                    weaponName = "-";
+                    w = idf.M109;
+                    break;
+            }
+
+            int rank = rankTerrorist(i.ter);
+
+        Console.WriteLine($"the terrorist {i.ter.name}, graded {rank} in the terror organization hamas, " +
+            $"was killed by {weaponName} of idf; he wached before at {i.timestamp} o'clock in {i.location}" +
+            $" helding a {i.ter.Weapon}. remined strikes in the {weaponName} after the strike: {w.remainingStrikes}.");
         }
     }
 }
