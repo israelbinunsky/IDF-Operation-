@@ -7,10 +7,9 @@ class aman
     public aman()
     {
         intels = new List<intel>();
-
     }
 
-    public void addIntel(string terrorist, string location, string timestamp)
+    public void addIntel(terrorist terrorist, string location, string timestamp)
     {
         intel i = new intel(terrorist, location, timestamp);
         this.intels.Add(i);

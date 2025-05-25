@@ -19,8 +19,22 @@ namespace idf_operation
             hamas.addTerrorist("saud", 1, "knife");
 
             aman aman = new aman();
-            aman 
 
+
+            terrorist r = randomTerrorist(hamas);
+            aman.addIntel(r , "a", "b");
+            Console.WriteLine(aman.intels[0].location);
+
+        }
+
+        static terrorist randomTerrorist(hamas h)
+        {
+            Random rnd = new Random();
+            int i = rnd.Next(h.terrorists.Count);
+
+            terrorist ranTerrorist = h.terrorists[i];
+
+            return ranTerrorist;
         }
     }
 }

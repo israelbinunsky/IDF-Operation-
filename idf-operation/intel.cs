@@ -1,13 +1,13 @@
 ﻿using System;
 public class intel
 {
-    public string terrorist;
+    public terrorist ter;
     public string location;
     public string timestamp;
 
-    public intel(string terrorist, string location, string timestamp)
+    public intel(terrorist ter, string location, string timestamp)
     {
-        this.terrorist = terrorist;
+        this.ter = ter;
         this.location = location;
         this.timestamp = timestamp;
     }
