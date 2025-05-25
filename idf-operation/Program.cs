@@ -62,8 +62,6 @@ namespace idf_operation
             return ranTerrorist;
         }
 
-        
-
         static public int rankTerrorist(terrorist t)
         {
             int w = 0;
@@ -77,11 +75,26 @@ namespace idf_operation
             return (w + t.rank) * 2;
         }
 
+
+        static public int chooseIndex(aman aman)
+        {
+            Console.WriteLine("choose number of intel:");
+            int num = int.Parse(Console.ReadLine());
+
+            if (num > aman.intels.Count || num > aman.intels.Count)
+            {
+                Random rnd = new Random();
+                num = rnd.Next(aman.intels.Count);
+                Console.WriteLine("the index is out of range. random number was choosen.");
+            }
+            return num;
+        }
+
         static public void strike(aman aman, idf idf)
         {
+            int index = chooseIndex(aman);
 
-            Random rnd = new Random();
-            int index = rnd.Next(aman.intels.Count);
+
             intel i = aman.intels[index];
 
             if (i.ter.isLive == true)
