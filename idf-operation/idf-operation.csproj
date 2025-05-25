@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commander interface.cs" />
+    <Compile Include="hamas.cs" />
+    <Compile Include="IDF.cs" />
+    <Compile Include="intel.cs" />
+    <Compile Include="intelligence.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="terrorist.cs" />
+    <Compile Include="weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

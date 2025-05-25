@@ -1,5 +1,4 @@
 # IDF-Operation-
-# idf-oporation
 # class organization:
 - Date of establishment  
 - Current commander
@@ -32,4 +31,4 @@ list = affiliated terrorists
 - Name
 - Rank
 - Status
-- 
+- weapon
