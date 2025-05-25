@@ -4,16 +4,19 @@ using System.Security.Cryptography.X509Certificates;
 
 class hamas
 {
-    public List<terrorist> terrorists;
+    public Dictionary<string, terrorist> terrorists;
+    public List<terrorist> terrorists_list;
 
     public hamas()
     {
-        terrorists = new List<terrorist>();  
+        terrorists = new Dictionary<string, terrorist>();
+        terrorists_list = new List<terrorist>();
     }
   
     public void addTerrorist(string name, int rank, string Weapon)
     {
         terrorist ter = new terrorist(name, rank, Weapon, true);
-        this.terrorists.Add(ter);
+        this.terrorists[name] = ter;
+        this.terrorists_list.Add(ter);
     }
 }

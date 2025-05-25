@@ -18,12 +18,36 @@ namespace idf_operation
             hamas.addTerrorist("abed", 2, "knife");
             hamas.addTerrorist("saud", 1, "knife");
 
+
             aman aman = new aman();
+            terrorist t1 = randomTerrorist(hamas);
+            aman.addIntel(t1 , "building", "12:20");
+            terrorist t2 = randomTerrorist(hamas);
+            aman.addIntel(t2, "car", "17:44");
+            terrorist t3 = randomTerrorist(hamas);
+            aman.addIntel(t3, "open space", "09:33");
+            terrorist t4 = randomTerrorist(hamas);
+            aman.addIntel(t4, "building", "11:11");
+            terrorist t5 = randomTerrorist(hamas);
+            aman.addIntel(t5, "car", "20:22");
+            terrorist t6 = randomTerrorist(hamas);
+            aman.addIntel(t6, "open space", "10:10");
+            terrorist t7 = randomTerrorist(hamas);
+            aman.addIntel(t7, "building", "11:20");
+            terrorist t8 = randomTerrorist(hamas);
+            aman.addIntel(t8, "car", "12:12");
+            terrorist t9 = randomTerrorist(hamas);
+            aman.addIntel(t9, "open space", "01:55");
+            terrorist t10 = randomTerrorist(hamas);
+            aman.addIntel(t10, "building", "04:04");
+            terrorist t11 = randomTerrorist(hamas);
+            aman.addIntel(t11, "car", "22:03");
+            terrorist t12 = randomTerrorist(hamas);
+            aman.addIntel(t12, "open space", "11:04");
 
-
-            terrorist r = randomTerrorist(hamas);
-            aman.addIntel(r , "a", "b");
-            Console.WriteLine(aman.intels[0].location);
+            terrorist myTerrorist = hamas.terrorists[aman.intels[0].ter.name];
+            strike(myTerrorist);
+            Console.WriteLine(myTerrorist.isLive);
 
         }
 
@@ -31,10 +55,27 @@ namespace idf_operation
         {
             Random rnd = new Random();
             int i = rnd.Next(h.terrorists.Count);
-
-            terrorist ranTerrorist = h.terrorists[i];
+            terrorist ranTerrorist = h.terrorists_list[i];
 
             return ranTerrorist;
+        }
+
+        static int rankTerrorist(terrorist t)
+        {
+            int w = 0;
+            switch (t.Weapon)
+            {
+                case "knife": w = 1; break;
+                case "gun": w = 2; break;
+                case "M16": w = 3; break;
+                case "AK47": w = 4; break;
+            }
+            return (w + t.rank) * 2;
+        }
+
+        static public void strike(terrorist t)
+        {
+            t.isLive = false;
         }
     }
 }

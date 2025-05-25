@@ -1,5 +1,5 @@
 ﻿using System;
-internal class terrorist
+public class terrorist
 {
     public string name;
     public int rank;
