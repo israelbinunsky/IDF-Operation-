@@ -89,8 +89,6 @@ namespace idf_operation
 
                 Console.WriteLine("the index is out of range. random number will be choosen.");
 
-                Console.WriteLine("the index is out of range. random number was choosen.");
-
             }
             return num;
         }
