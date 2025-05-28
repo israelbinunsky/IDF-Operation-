@@ -20,29 +20,31 @@ namespace idf_operation
 
 
             aman aman = new aman();
-            terrorist t1 = randomTerrorist(hamas);
+            Random rnd = new Random();
+
+            terrorist t1 = randomTerrorist(hamas, rnd);
             aman.addIntel(t1 , "building", "12:20");
-            terrorist t2 = randomTerrorist(hamas);
+            terrorist t2 = randomTerrorist(hamas, rnd);
             aman.addIntel(t2, "car", "17:44");
-            terrorist t3 = randomTerrorist(hamas);
+            terrorist t3 = randomTerrorist(hamas, rnd);
             aman.addIntel(t3, "open space", "09:33");
-            terrorist t4 = randomTerrorist(hamas);
+            terrorist t4 = randomTerrorist(hamas, rnd);
             aman.addIntel(t4, "building", "11:11");
-            terrorist t5 = randomTerrorist(hamas);
+            terrorist t5 = randomTerrorist(hamas, rnd);
             aman.addIntel(t5, "car", "20:22");
-            terrorist t6 = randomTerrorist(hamas);
+            terrorist t6 = randomTerrorist(hamas, rnd);
             aman.addIntel(t6, "open space", "10:10");
-            terrorist t7 = randomTerrorist(hamas);
+            terrorist t7 = randomTerrorist(hamas, rnd);
             aman.addIntel(t7, "building", "11:20");
-            terrorist t8 = randomTerrorist(hamas);
+            terrorist t8 = randomTerrorist(hamas, rnd);
             aman.addIntel(t8, "car", "12:12");
-            terrorist t9 = randomTerrorist(hamas);
+            terrorist t9 = randomTerrorist(hamas, rnd);
             aman.addIntel(t9, "open space", "01:55");
-            terrorist t10 = randomTerrorist(hamas);
+            terrorist t10 = randomTerrorist(hamas, rnd);
             aman.addIntel(t10, "building", "04:04");
-            terrorist t11 = randomTerrorist(hamas);
+            terrorist t11 = randomTerrorist(hamas, rnd);
             aman.addIntel(t11, "car", "22:03");
-            terrorist t12 = randomTerrorist(hamas);
+            terrorist t12 = randomTerrorist(hamas, rnd);
             aman.addIntel(t12, "open space", "11:04");
 
 
@@ -52,10 +54,9 @@ namespace idf_operation
             
         }
 
-        static terrorist randomTerrorist(hamas h)
+        static terrorist randomTerrorist(hamas h, Random rnd)
         {
-            Random rnd = new Random();
-            int i = rnd.Next(h.terrorists.Count);
+            int i = rnd.Next(5);
             terrorist ranTerrorist = h.terrorists_list[i];
 
             return ranTerrorist;
@@ -125,23 +126,31 @@ namespace idf_operation
             Console.WriteLine("to upload the weapon enter 2.");
             Console.WriteLine("to show all the terrorist enter 3.");
             Console.WriteLine("to show all the intels enter 4.");
+            Console.WriteLine("To close menu enter 5.");
             int num = int.Parse(Console.ReadLine());
             switch (num)
             {
                 case 1:
                     strike(aman, idf);
+                    menue(aman, idf, hamas);
                     break;
                 case 2:
                     chargeWeapon(idf);
+                    menue(aman, idf, hamas);
                     break;
                 case 3:
                     showTerrorists(hamas);
+                    menue(aman, idf, hamas);
                     break;
                 case 4:
                     showIntels(aman);
+                    menue(aman, idf, hamas);
                     break;
+                case 5:
+                    break;    
                 default:
                     Console.WriteLine("invalid number");
+                    menue(aman, idf, hamas);
                     break;
             }
 
