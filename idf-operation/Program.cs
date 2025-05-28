@@ -48,7 +48,7 @@ namespace idf_operation
 
             idf idf = new idf();
 
-            menue(aman, idf);
+            menue(aman, idf, hamas);
             
         }
 
