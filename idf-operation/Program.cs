@@ -119,10 +119,12 @@ namespace idf_operation
             }
         }
 
-        static public void menue(aman aman, idf idf)
+        static public void menue(aman aman, idf idf, hamas hamas)
         {
-            Console.WriteLine("to choose intel and strike the terrorist enter 1. " +
-                "to upload the weapon enter 2.");
+            Console.WriteLine("to choose intel and strike the terrorist enter 1.");
+            Console.WriteLine("to upload the weapon enter 2.");
+            Console.WriteLine("to show all the terrorist enter 3.");
+            Console.WriteLine("to show all the intels enter 4.");
             int num = int.Parse(Console.ReadLine());
             switch (num)
             {
@@ -131,6 +133,12 @@ namespace idf_operation
                     break;
                 case 2:
                     chargeWeapon(idf);
+                    break;
+                case 3:
+                    showTerrorists(hamas);
+                    break;
+                case 4:
+                    showIntels(aman);
                     break;
                 default:
                     Console.WriteLine("invalid number");
@@ -191,6 +199,28 @@ namespace idf_operation
             else
             {
                 Console.WriteLine("this terrorist is alredy dead.");
+            }
+        }
+
+        public static void showTerrorists(hamas hamas)
+        {
+            foreach (terrorist terrorist in hamas.terrorists_list)
+            {
+                Console.WriteLine($"{terrorist.name}:");
+                if (terrorist.isLive == true)
+                { Console.WriteLine("live."); }
+                else { Console.WriteLine("dead."); }
+            }
+        }
+
+         public static void showIntels(aman aman)
+        {
+            foreach (intel intel in aman.intels)
+            {
+                Console.WriteLine($"{intel.ter.name}: watched in {intel.location}");
+                if (intel.ter.isLive == true)
+                { Console.WriteLine("he is still live."); }
+                else { Console.WriteLine("he is dead."); }
             }
         }
     }
